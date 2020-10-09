@@ -1,0 +1,429 @@
+/* input {
+  border: 1px solid #666666;
+  border-radius: 8px;
+  outline: none;
+} */
+input {
+  outline: none;
+  border: none;
+}
+
+/* input:focus {
+  border-color: #0084ff;
+} */
+
+button {
+  border-radius: 8px;
+  outline: none;
+  border: 0;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #0084FF, #87ddff);
+  transition: all 1s;
+}
+
+button:active {
+  background: linear-gradient(to top, #0084FF, #87ddff);
+  transition: 0s;
+}
+.clickable {
+  background: rgba(100, 100, 100, .1) !important;
+  transition: all .7s;
+}
+/* img */
+.auto-img {
+  width: 100%;
+  height: auto;
+}
+
+/* flex */
+.flex,
+.f-a-c,
+.f-aj-c,
+.f-column,
+.f-j-sb,
+.f-wrap {
+  display: flex;
+}
+
+.f-a-c,
+.f-aj-c {
+  align-items: center;
+}
+
+.f-aj-c {
+  justify-content: center;
+}
+
+.f-j-sb {
+  justify-content: space-between;
+}
+
+.f-column {
+  flex-direction: column;
+}
+
+.f-as-start {
+  align-self: flex-start;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
+}
+
+.f1 {
+  flex: 1;
+}
+.grid {
+  display: grid;
+}
+
+/* color */
+.color-f {
+  color: #ffffff;
+}
+
+.color-c {
+  color: #cccccc;
+}
+
+.color-8 {
+  color: #888888;
+}
+
+.color-6 {
+  color: #666666;
+}
+
+.color-3 {
+  color: #333333;
+}
+
+.color-yellow {
+  color: #FFB546;
+}
+
+.color-red {
+  color: #FF6464;
+}
+
+.color-blue {
+  color: #0084ff;
+}
+
+/* background */
+.bg-0 {
+  background: #000000;
+}
+
+.bg-f {
+  background: #ffffff;
+}
+
+.bg-f8 {
+  background: #f8f8f8;
+}
+
+
+/* opacity */
+.o-3 {
+  opacity: .3;
+}
+
+/* font-size */
+.f-26-b {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 37px;
+}
+
+.f-22-b {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.f-22 {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.f-20-b {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.f-20 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.f-16-b {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.f-16 {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.f-14 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* font-style */
+.f-w-bold {
+  font-weight: bold;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-right {
+  text-align: right;
+}
+
+/* margin */
+.m-b-32 {
+  margin-bottom: 32px;
+}
+
+.m-t-32 {
+  margin-top: 32px;
+}
+
+.m-r-32 {
+  /* margin-right: 32px; */
+  margin-right: 2rem;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+.m-r-18 {
+  margin-right: 18px;
+}
+
+.m-t-16 {
+  margin-top: 16px;
+}
+
+.m-r-16 {
+  margin-right: 16px;
+}
+
+.m-r-8 {
+  margin-right: 8px;
+}
+
+.m-t-8 {
+  margin-top: 8px;
+}
+
+.m-l-8 {
+  margin-left: 8px;
+}
+
+.m-b-8 {
+  margin-bottom: 8px;
+}
+
+/* padding */
+.p-32 {
+  padding: 32px;
+}
+
+.p-l-32 {
+  padding-left: 32px;
+}
+
+.p-r-32 {
+  padding-right: 32px;
+}
+
+.p-16 {
+  padding: 16px;
+}
+
+.p-r-12 {
+  padding-right: 12px;
+}
+.p-lr-8 {
+  padding: 0 8px;
+}
+.p-t-8 {
+  padding-top: 8px;
+}
+.p-8 {
+  padding: 8px;
+}
+
+/* border */
+.b-1-c {
+  border: 1px solid #cccccc;
+}
+
+/* border-radius */
+.b-r-half {
+  border-radius: 50%;
+}
+.b-r-8 {
+  border-radius: 8px;
+}
+
+.b-r-4 {
+  border-radius: 4px;
+}
+
+/* width+height */
+.box-all {
+  width: 100%;
+  height: 100%;
+}
+
+.box-200 {
+  width: 200px;
+  height: 200px;
+}
+
+.box-60 {
+  width: 60px;
+  height: 60px;
+}
+
+.box-48 {
+  width: 48px;
+  height: 48px;
+}
+
+.box-32 {
+  width: 32px;
+  height: 32px;
+}
+
+.box-30 {
+  width: 30px;
+  height: 30px;
+}
+
+.box-18 {
+  width: 18px;
+  height: 18px;
+}
+
+/* width */
+.w-all {
+  width: 100%;
+}
+
+.w-200 {
+  width: 200px;
+}
+
+/* height */
+.h-all {
+  height: 100%;
+}
+.h-min-all {
+  min-height: 100%;
+}
+
+.h-42 {
+  height: 42px;
+  line-height: 42px;
+}
+
+.h-32 {
+  height: 32px;
+  line-height: 32px;
+}
+
+/* position */
+.pos-rel {
+  position: relative;
+}
+
+.pos-abs {
+  position: absolute;
+}
+
+.p-a-b {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.p-a-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* overflow */
+.scroll-y {
+  overflow-y: auto;
+}
+
+.border-btn1 {
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #666666;
+  cursor: pointer;
+}
+
+.table-select {
+  top: 1px;
+  width: 110px
+}
+
+/*svg {*/
+/*  width: 0.6em;*/
+/*  height:0.6em;*/
+/*}*/
+/* select的箭头 */
+.ant-select-arrow {
+  margin-top: 0;
+  transform: translateY(-50%);
+}
+
+.o-07 {
+  opacity: .7;
+}
+
+.ban {
+  pointer-events: none;
+}
+
+.slide-y {
+  overflow-y: auto;
+}
+.slide-x {
+  overflow-x: auto;
+}
+
+.clear-fix {
+  overflow: hidden;
+}
+
+.single-omit {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.muti-omit {
+  display: -webkit-box;
+  /* text-overflow: ellipsis; */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow : hidden;
+}

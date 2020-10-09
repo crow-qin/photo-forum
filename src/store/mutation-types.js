@@ -1,0 +1,6 @@
+export const CHANGE_GOOD = 'CHANGE_GOOD'
+export const CHANGE_LIKE = 'CHANGE_LIKE'
+export const CHANGE_USER_TAG = 'CHANGE_USER_TAG'
+export const CHANGE_USER = 'CHANGE_USER'
+export const ADD_PIC = 'ADD_PIC'
+export const ADD_COMMENT = 'ADD_COMMENT'
