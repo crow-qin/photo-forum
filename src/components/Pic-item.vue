@@ -48,7 +48,7 @@ export default {
     return {
       lActive: false,
       gActive: false,
-      rowStyle: ''
+      rowStyle: 'grid-row: auto/span 10'
     };
   },
   computed: {
@@ -65,11 +65,15 @@ export default {
     this.initialTag();
     let self = this
     this.$nextTick(()=>{
-      
-      let height = self.$refs['pic-box'].offsetHeight
-      console.log(height)
-      
-      self.rowStyle = 'grid-row: auto/span ' + Math.ceil(height/10)
+      let img = new Image()
+      img.src = self.item.url[0]
+      img.onload = function() {
+
+        let height = self.$refs['pic-box'].offsetHeight
+        console.log(height)
+        
+        self.rowStyle = 'grid-row: auto/span ' + Math.ceil(height/10)
+      }
     })
   },
   methods: {
@@ -120,7 +124,6 @@ export default {
       }
     }
   }
-
 };
 </script>
 

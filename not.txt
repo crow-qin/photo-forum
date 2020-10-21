@@ -1872,4 +1872,54 @@ w: {
      let scale = wx.getSystemInfoSync().screenWidth / 750
      let width = 'svg原本的宽度' 
      width = width*2*scale
+  
+  =d2-1020=
+  i18n 
+  对复数不同的
+  $tc()
+
+  =d3-1021=
+  q: 瀑布流需要计算高度的类型 图片还没有获取完就已经渲染上去, 造成视图显示不完整
+  
+  a: 获取数据后，遍历数据数组，预加载图片，计算图片缩放后的高度，存储起来。
+    同时由于图片加载是异步加载，所以用变量计数，当最后一个图片加载完成后，开始渲染页面。
+    
+    loadImagesHeight(list){
+      var count = 0; //用来计数，表示是否所有图片高度已经获取
+      list.forEach((item, index)=>{
+       //创建图片对象，加载图片，计算图片高度
+       var img = new Image();
+       img.src = item.cover;
+       img.onload = img.onerror = (e)=>{
+       count++;
+       if (e.type == 'load'){ //图片加载成功
+        //计算图片缩放后的高度：图片原高度/原宽度 = 缩放后高度/缩放后宽度
+        list[index].imgHeight = Math.round(img.height * this.boxWidth / img.width);
+        // console.log('index: ', index, ', load suc, imgHeiht: ', list[index].imgHeight);
+       }
+       else{ //图片加载失败，给一个默认高度50
+        list[index].imgHeight = 50;
+        console.log("index： ", index, "， 加载报错：", e);
+       }
+     
+       //加载完成最后一个图片高度，开始下一步数据处理
+       if (count == list.length){
+        this.resolveDataList(list);
+       }
+       }
+      })
+    }
+
+    对于组件可以组件mounted中
+    mounted: {
+      let self = this
+      this.$nextTick(()=>{
+        let img = new Image()
+        img.src = self.item.url[0]
+        img.onload = function() {
+
+          // 计算高度
+        }
+      })
+    }
 }
