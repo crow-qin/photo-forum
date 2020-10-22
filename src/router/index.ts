@@ -28,6 +28,12 @@ const routes: Array<RouteConfig> = [
     name: 'search',
     component: ()=>import('@/views/home/search/Search.vue')
   },
+
+  {
+    path: '/searchDetail',
+    name: 'search-detail',
+    component: ()=>import('@/views/home/search/SearchDetail.vue')
+  },
   // user
   {
     path: '/user',

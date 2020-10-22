@@ -42,13 +42,15 @@ export default class Search extends Vue {
     console.log(flag);
     
     if(flag == '') {
+      flag = this.text
       this.addHR(this.text)
     } else {
-      this.addHR(flag)
+      this.addHR(flag) 
     }
+    this.$router.push({name: 'search-detail',query: {kw: flag}})
   }
   addHR(text: string): void {
-    if(text=='') return 
+    if(text.trim() == '') return 
     let date:string = new Date().getTime().toString()
     let item: HrItem = {
       text: text,
