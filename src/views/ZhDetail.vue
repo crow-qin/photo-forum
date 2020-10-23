@@ -101,7 +101,6 @@ export default {
       background-size: cover;
       height: 200px;
     }
-
   }
 
   .tab {
