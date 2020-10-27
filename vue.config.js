@@ -95,23 +95,23 @@ module.exports = {
     )
 
     // 公共代码抽离
-    config.optimization = {
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            chunks: 'all',
-            test: /node_module/,
-            name: 'vendor',
-            minChunks: 1,
-            maxInitialRequests: 5,
-            minSize: 0,
-            priority: 100
-          }
-        },
-        runtimeChunk: {
-          name: 'manifest'
-        }
-      }
-    }
+    // config.optimization = {
+    //   splitChunks: {
+    //     cacheGroups: {
+    //       vendor: {
+    //         chunks: 'all',
+    //         test: /node_module/,
+    //         name: 'vendor',
+    //         minChunks: 1,
+    //         maxInitialRequests: 5,
+    //         minSize: 0,
+    //         priority: 100
+    //       }
+    //     },
+    //     runtimeChunk: {
+    //       name: 'manifest'
+    //     }
+    //   }
+    // }
   }
 }
