@@ -1924,4 +1924,82 @@ w: {
     }
   =d5--1023=
   t: 联系设备端设计数据点 考虑设备端上报的情况
+
+  =d3--1028=
+  q: 使用sourceTree进行代码推送 或直接用git推送时弹出窗口提示输入github账号密码 输入后错误
+  a: 窗口的密码不是账号密码 而是token 点击github头像->setting
+
+  =d4--1029= 
+  t: antd + vue 多语言
+  需要修改 业务语言+ 日期格式 + 组件内语言
+  使用库 vue-i18n moment 
+  使用antd组件 <a-locale-provider :locale="locale"></a-locale-provider>
+  
+  在main.js定义i18n
+  并定义一个全局切换方法
+  main.js 
+  new Vue({
+    ...
+    data: {
+      return　{
+        Bus: new Vue()
+        // 定义一个空的Vue实例 所有的组件都能使用
+      }
+    }
+  })
+
+  在App.vue
+  将router-view用国际化组件包裹起来
+  <a-locale-provider :locale="locale">
+    <div id="app">
+      <router-view v-if="isRouteActive" />
+    </div>
+  </a-locale-provider>
+
+  ps: 在高版本中 a-locale-provider 已被废弃 现在使用a-config-provider
+
+  js
+  import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN'
+  import en from 'ant-design-vue/lib/locale-provider/en_US'
+  import moment from 'moment'
+  import 'moment/locale/zh-cn'
+
+  moment.locale('zh-cn')
+  export default {
+    name: 'App',
+    data () {
+      return {
+        locale: zh_CN,
+        isRouteActive: true
+      }
+    },
+    created() {
+      // 初始化localStorage的语言
+      ...
+      this.$root.Bus.$on('switchLang',()=>{
+        // 切换 moment 
+        // 切换i18n
+        // 切换data的locale
+        ...
+      })
+    }
+  }
+
+  =d5--1030=
+
+  q: uni的switch 在checked值没有发生变化时 改变状态
+    例如在点击switch 请求接口 接口调用失败 checked没有改变
+    但此时switch的状态已经发生改变
+  a: switch的cheecked不是双向绑定
+    用一个view作为点击 在接口返回后,根据返回状态修改checked
+    <view class="p-r">
+			<switch :checked="!!switchData.enable" />
+			<view class="box-all p-a" style="left: 0;top: 0;" @tap="onChange"></view>
+    </view>
+    
+  q: vue项目运行时内存溢出
+  a: 打开一个cmd窗口 
+    执行 setx NODE_OPTIONS --max_old_space_size=4069（如何不行的许，可以再设置大点）
+    关闭所有cmd /代码编辑器
+    重新打开cmd并再次运行节点命令（npm等）
 }
