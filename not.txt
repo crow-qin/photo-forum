@@ -2003,3 +2003,8 @@ w: {
     关闭所有cmd /代码编辑器
     重新打开cmd并再次运行节点命令（npm等）
 }
+w: {
+  =d4--1105=
+  q: uni.hideLoading()后使用uni.showToast() 真机上提示音没有按设置的时长显示 显示很短时间
+  a: hideLoading也可以隐藏showToast 可以再hideLoading执行完成后再调用showToast 比如使用setTImeout
+}

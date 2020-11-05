@@ -5,8 +5,9 @@
       找不到
     </div> -->
     <!-- <div v-else> -->
-    <div class="h-all">
-      <div class="slide-nav w-all f-aj-c">
+    <!-- <div class=""> -->
+      <div class="slide-nav w-all f-aj-c" ref="slide_box">
+         <!-- :class="{navBarWrap: isTop}" -->
         <div
           class="slide-nav-item f-14 f1 t-center"
           :class="{ 'color-blue': slideIndex == i }"
@@ -18,10 +19,11 @@
         </div>
         <div class="slide-nav-active" :style="slideSty"></div>
       </div>
-      <div class="slide-content pos-rel box-all clear-fix">
+
+      <div class="slide-box pos-rel w-all" style="height: calc(100% - 40px)">
         <transition :name="direction">
           <div
-            class="w-all h-all slide pos-abs"
+            class="w-all slide-box-content pos-abs"
             :key="slideIndex"
             :class="'bg-' + slideIndex"
           >
@@ -29,7 +31,7 @@
           </div>
         </transition>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
@@ -46,17 +48,21 @@ type DirectionVal = 'left'|'right'
 export default class SearchDetail extends Vue {
   private kw: string = "";
   private List: any[] = [];
-  private slideArr: string[] = ["最热", "作者", "图片"];
+  private slideArr: string[] = ["最热", "最新", "作者", "图片"];
   private slideIndex: number = 0;
   private direction: DirectionVal = 'right'
+  private slideTop: number = 0
+  private isTop: boolean = false
 
-  get slideSty(): string {
-    return `transform: translateX(${100 * this.slideIndex}%)`;
+  get slideSty(): any {
+    return {width: `calc(100% / ${this.slideArr.length})`,transform: `translateX(${100 * this.slideIndex}%)`};
   }
   mounted(): void {
     let { kw } = this.$route.query;
     this.kw = kw as string;
     console.log(kw);
+    let {slide_box} = this.$refs
+    this.slideTop = (slide_box as any).offsetTop
     window.addEventListener('scroll',this.watchScroll)
   }
 
@@ -68,15 +74,21 @@ export default class SearchDetail extends Vue {
     this.slideIndex = i;
   }
 
-  watchScroll(e: any) {
-    console.log(e)
-    
+  watchScroll() {
+    let scroll:number = document.documentElement.scrollTop || document.body.scrollTop;
+    console.log(scroll)
+    this.isTop = scroll > this.slideTop 
   }
 }
 </script>
 
 <style lang="scss">
-.slide-nav {
+
+.slide {
+  &-container {
+    height: calc(100% + 44px);
+  }
+  &-nav {
   height: 40px;
   position: relative;
 
@@ -89,19 +101,30 @@ export default class SearchDetail extends Vue {
     left: 0;
     height: 2px;
     background: #0084ff;
-    width: calc(100% / 3);
+    
     transition: transform 0.6s;
+  }
+}
+  &-box {
+    overflow-x: hidden;
+    overflow-y: auto;
+    &-content {
+      
+    }
   }
 }
 .bg {
   &-0 {
     background: #f8dddd22;
+    height: 1200px;
   }
   &-1 {
     background: #fdf58d22;
+    height: 700px;
   }
   &-2 {
     background: #8ddfdd22;
+    height: 1000px;
   }
 }
 .left-enter-active,
@@ -126,5 +149,10 @@ export default class SearchDetail extends Vue {
 }
 .right-leave-to {
   transform: translateX(-100%);
+}
+.navBarWrap {
+  position:fixed;
+  top:0;
+  z-index:999;
 }
 </style>
