@@ -78,6 +78,10 @@ const routes: Array<RouteConfig> = [
     path: '/comment/:id',
     name: 'comment',
     component: () => import('../views/Comment.vue')
+  },
+  {
+    path: '/a',
+    component: ()=>import('../views/user/a.vue')
   }
 ]
 
