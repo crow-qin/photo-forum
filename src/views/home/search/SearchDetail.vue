@@ -21,15 +21,14 @@
       </div>
 
       <div class="slide-box pos-rel w-all" style="height: calc(100% - 40px)">
-        <transition :name="direction">
           <div
             class="w-all slide-box-content pos-abs"
-            :key="slideIndex"
-            :class="'bg-' + slideIndex"
+            v-for = "(v,i) in slideArr"
+            :key="i"
+            :class="'bg-' + i"
           >
-            {{ slideIndex }}
+            {{ v }}
           </div>
-        </transition>
       </div>
     <!-- </div> -->
   </div>

@@ -27,6 +27,7 @@ const routes: Array<RouteConfig> = [
     path: '/search',
     name: 'search',
     component: ()=>import('@/views/home/search/Search.vue')
+    // children: []
   },
 
   {
