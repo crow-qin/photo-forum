@@ -1,12 +1,12 @@
 <template>
-  <div class="box-all">
+  <div class=" h-min-all">
     <Bar />
     <!-- <div class="f-16 color-3 t-center" v-if="List.length==0">
       找不到
     </div> -->
     <!-- <div v-else> -->
     <!-- <div class=""> -->
-      <div class="slide-nav w-all f-aj-c" ref="slide_box">
+      <div class="slide-nav w-all f-aj-c bg-f" :class="{navBarWrap: isTop}" ref="slide_box">
          <!-- :class="{navBarWrap: isTop}" -->
         <div
           class="slide-nav-item f-14 f1 t-center"
@@ -21,13 +21,22 @@
       </div>
 
       <div class="slide-box pos-rel w-all" style="height: calc(100% - 40px)">
-          <div
-            class="w-all slide-box-content pos-abs"
-            v-for = "(v,i) in slideArr"
-            :key="i"
-            :class="'bg-' + i"
-          >
-            {{ v }}
+        <!-- <div class="slide-box w-all pos-rel" :style="{height: height+'px'}"> -->
+          <div class="f-a-c pos-abs slide-box-content"
+           style="height: calc(100% - 40px)"
+           :style="{left: left}">
+            
+            <div
+              class="f1"
+              v-for = "(v,i) in slideArr"
+              :key="i"
+               style="height: calc(100% - 40px); overflow-y:auto;"
+            >
+              <div :class="'bg-' + i"
+                :style="{height: $data['list'+i]*80+'px'}">
+              {{ i +  $data['list'+i]}}
+              </div>
+            </div>
           </div>
       </div>
     <!-- </div> -->
@@ -35,27 +44,40 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import Bar from "@/components/Bar.vue";
 
-type DirectionVal = 'left'|'right'
 @Component({
   components: {
-    Bar,
-  },
+    Bar
+  }
 })
 export default class SearchDetail extends Vue {
   private kw: string = "";
   private List: any[] = [];
   private slideArr: string[] = ["最热", "最新", "作者", "图片"];
   private slideIndex: number = 0;
-  private direction: DirectionVal = 'right'
   private slideTop: number = 0
   private isTop: boolean = false
+  private height: number = 0
+  private list0: number = 28
+  private list1: number = 19
+  private list2: number = 13
+  private list3: number = 24
+  private left: number | string = 0
+  private scrollList: number[] = [0, 0, 0, 0]
 
   get slideSty(): any {
     return {width: `calc(100% / ${this.slideArr.length})`,transform: `translateX(${100 * this.slideIndex}%)`};
   }
+
+  @Watch('slideIndex', {immediate: true})
+  watchSlideIndex(now: number): void {
+    this.height = this.$data['list' + now] * 80
+    this.left = -now*100 + '%'
+    console.log(this.left)
+  }
+
   mounted(): void {
     let { kw } = this.$route.query;
     this.kw = kw as string;
@@ -69,14 +91,14 @@ export default class SearchDetail extends Vue {
   getDetail() {}
 
   selectedIndex(i: number) {
-    this.direction = this.slideIndex > i ? 'left' : 'right'
     this.slideIndex = i;
   }
 
   watchScroll() {
-    let scroll:number = document.documentElement.scrollTop || document.body.scrollTop;
+    let curScroll:number = document.documentElement.scrollTop || document.body.scrollTop;
     console.log(scroll)
-    this.isTop = scroll > this.slideTop 
+    this.isTop = curScroll > this.slideTop 
+    
   }
 }
 </script>
@@ -106,49 +128,25 @@ export default class SearchDetail extends Vue {
 }
   &-box {
     overflow-x: hidden;
-    overflow-y: auto;
+    // overflow-y: auto;
     &-content {
-      
+      width: 400%;
+      transition: left .3s;
     }
   }
 }
 .bg {
   &-0 {
     background: #f8dddd22;
-    height: 1200px;
   }
   &-1 {
     background: #fdf58d22;
-    height: 700px;
   }
   &-2 {
     background: #8ddfdd22;
-    height: 1000px;
   }
 }
-.left-enter-active,
-.left-leave-active {
-  transition: transform .6s linear;
-  transform: translateX(0%);
-}
-.left-enter {
-  transform: translateX(-100%);
-}
-.left-leave-to {
-  transform: translateX(100%);
-}
 
-.right-enter-active,
-.right-leave-active {
-  transition: transform .6s linear;
-  transform: translateX(0%);
-}
-.right-enter {
-  transform: translateX(100%);
-}
-.right-leave-to {
-  transform: translateX(-100%);
-}
 .navBarWrap {
   position:fixed;
   top:0;
