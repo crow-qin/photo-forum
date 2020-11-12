@@ -2008,3 +2008,22 @@ w: {
   q: uni.hideLoading()后使用uni.showToast() 真机上提示音没有按设置的时长显示 显示很短时间
   a: hideLoading也可以隐藏showToast 可以再hideLoading执行完成后再调用showToast 比如使用setTImeout
 }
+w: {
+  =d4--1112= 
+  uni.$emit() uni.$on() uni.$off()
+  通过$emit触发 在$on监听事件
+  tip: 如果在不同页面有不同的操作 记得在页面卸载或隐藏时要解绑事件
+  如果都是相同的操作 可以再app.vue里写
+  
+  css变量
+  :root {
+    --color: #222;
+  }
+  .app {
+    background: var(--color)
+  }
+
+  tip: 变量以--开头 使用时要用var()包起来
+
+  
+}

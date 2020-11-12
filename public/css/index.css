@@ -3,6 +3,7 @@
   border-radius: 8px;
   outline: none;
 } */
+
 input {
   outline: none;
   border: none;
@@ -11,7 +12,9 @@ input {
 /* input:focus {
   border-color: #0084ff;
 } */
-
+:root {
+  --color: #fff;
+}
 button {
   border-radius: 8px;
   outline: none;
@@ -79,7 +82,7 @@ button:active {
 
 /* color */
 .color-f {
-  color: #ffffff;
+  color: var(--color);
 }
 
 .color-c {

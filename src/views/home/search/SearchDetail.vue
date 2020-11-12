@@ -104,7 +104,9 @@ export default class SearchDetail extends Vue {
 </script>
 
 <style lang="scss">
-
+:root {
+  --bg: #00ff84;
+}
 .slide {
   &-container {
     height: calc(100% + 44px);
@@ -144,6 +146,9 @@ export default class SearchDetail extends Vue {
   }
   &-2 {
     background: #8ddfdd22;
+  }
+  &-3 {
+    background: var(--bg);
   }
 }
 
