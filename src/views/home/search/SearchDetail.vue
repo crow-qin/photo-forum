@@ -27,10 +27,10 @@
            :style="{left: left}">
             
             <div
-              class="f1"
+              class="f1 h-all"
               v-for = "(v,i) in slideArr"
               :key="i"
-               style="height: calc(100% - 40px); overflow-y:auto;"
+               style="overflow-y:auto;"
             >
               <div :class="'bg-' + i"
                 :style="{height: $data['list'+i]*80+'px'}">

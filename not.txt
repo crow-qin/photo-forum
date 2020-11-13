@@ -2025,5 +2025,21 @@ w: {
 
   tip: 变量以--开头 使用时要用var()包起来
 
+  =d5--1113=
+  q: uniapp 小程序使用lottie-miniprogram.js 动画可见但是没有执行
+  a: 删除lottie-miniprogram这2行代码就好
+
+    window.requestAnimationFrame = canvas.requestAnimationFrame.bind(canvas)
+
+    window.cancelAnimationFrame = canvas.cancelAnimationFrame.bind(canvas)
+
+    dist文件是
+
+    e.requestAnimationFrame=t.requestAnimationFrame.bind(t),e.cancelAnimationFrame=t.cancelAnimationFrame.bind(t),
+  
+  uniapp picker-view的样式
+
+  picker-view自身的style在最底层
+  mask-style mask-class 在倒数第二层
   
 }
