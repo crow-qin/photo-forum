@@ -1245,8 +1245,7 @@ w12: {
 	  		that.curWifi = res.SSID
 	  		console.log(res)
 	  		if(res.wifi.SSID.startsWith("adh_")){
-	  			clearInterval(this.getWifiInterval)
-	  			PageUtils.navTo(PageUtils.ADD_DEVICE_CONFIGING,this.wifiInfo)
+          ...
 	  		}
 	  	}
     });
@@ -1399,7 +1398,7 @@ w: {
 	wx.login({
 		
 	})
-	获取code appid 发送给服务器 服务器向微信服务器换取 openId session_key
+	获取code appid 发送给服务器 服务器向微信服务器换取 openid session_key
 	
 	<button class="text-center reset-btn" open-type="getPhoneNumber" @getphonenumber="getphonenumber">
 	 
@@ -1432,7 +1431,7 @@ W: {
 w: {
 	=d1--0824=
 	解决小程序lottie出现锯齿的情况
-		将canvas的寛高放大 再用css的scale缩小到需要的大小
+		将canvas的宽高放大 再用css的scale缩小到需要的大小
 }
 w: {
   =d2--0901=
@@ -1469,7 +1468,7 @@ w: {
     ex:如果只想active->正常有动画 就在正常添加过渡 设置active的过渡为0s 没有动画
 	=d4--0903=
 	uni的坑 
-	uni小程序运行到手机上
+	uni小程序转app
 	注意
 	1. 不要直接在组件上绑定事件 小程序可以触发 app端不能触发
 	通过 this.$emit 触发自定义函数
