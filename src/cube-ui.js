@@ -40,7 +40,7 @@ import {
   Drawer,
   ImagePreview,
   // scroll
-  // Scroll,
+  Scroll,
   Slide,
   // IndexList,
   // Swipe,
@@ -84,7 +84,7 @@ let uiPlugin = [Style,
   Drawer,
   ImagePreview,
   // scroll
-  // Scroll,
+  Scroll,
   Slide,
   // IndexList,
   // Swipe,

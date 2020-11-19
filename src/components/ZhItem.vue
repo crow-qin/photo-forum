@@ -21,6 +21,7 @@ export default {
         name: "zhdetail",
         params: { id: this.item.id }
       });
+      
     }
   }
 };

@@ -42,14 +42,14 @@
     <WhiteSpace></WhiteSpace>
 
     <div class="my-tag-box">
-      <div class="my-good my-tag">
+      <div class="my-good my-tag" @click="openPage('my-favorite',{type: 0})">
         <i class="iconfont icon-shoucang tag-part"></i>
         <div class="title-part">
           <span class="t-title">我的收藏</span>
           <i class="cubeic-arrow more-arrow"></i>
         </div>
       </div>
-      <div class="my-like my-tag" @click="openPage('my-favorite')">
+      <div class="my-like my-tag" @click="openPage('my-favorite',{type: 1})">
         <i class="iconfont icon-aixin tag-part"></i>
         <div class="title-part">
           <span class="t-title">我的喜欢</span>
@@ -71,9 +71,9 @@ export default {
     ...mapGetters(["currentUserList"])
   },
   methods: {
-    openPage(text) {
+    openPage(text, obj) {
       console.log('打开页面')
-      this.$router.push({name: text})
+      this.$router.push({name: text, query: obj})
     }
   }
 };

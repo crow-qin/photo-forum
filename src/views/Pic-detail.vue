@@ -128,6 +128,7 @@ export default {
         this.lActive = true;
       }
     },
+    // 点击显示大图
     handleImgsClick(index) {
       // this.initialIndex = index;
       const params = {
@@ -149,11 +150,11 @@ export default {
     sendComment() {
       if (!this.text) {
         this.$createToast({
-        txt: '请输入内容后再发送',
-        type: '',
-        mask: true,
-        time: 1000
-      }).show()
+          txt: '请输入内容后再发送',
+          type: 'txt',
+          mask: true,
+          time: 1000
+        }).show()
         return;
       }
       let obj = {

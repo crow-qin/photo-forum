@@ -7,7 +7,7 @@
     <span class="cubeic-select"></span>
   </div>
   <div class="short-box comment-list">
-    <div class="item" v-for="v in shortComment" :key="v.time+v.id">
+    <div class="item" v-for="v in shortComment" :key="v.time + v.id">
       <div class="item-top">
         <div class="avatar" :style="{background:'url('+v.avatar+') no-repeat center center'}"></div>
         <div class="author">{{v.author}}</div>
