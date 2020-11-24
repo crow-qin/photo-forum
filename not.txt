@@ -1989,3 +1989,53 @@ w: {
   如果等于false，弹窗询问用户是否允许授权，再调用openSetting 让用户修改授权
   如果等于true，那直接调用wx.getWifiList()
 }
+w: {
+  =d1--1123=
+  t: moment 的函数
+  获取某一天的最后一秒 23:59:59 
+  moment().endOf('day')
+  获取某一天的第一秒 00:00:00
+  moment().startOf('day')
+  startOf, endOf 的关键字可以更改
+
+  moment 字符串与 moment 对象相互转换
+  字符串-> 对象
+  moment(string, 'YY-MM-DD HH:mm:ss')
+  对象-> 字符串
+  moment(obj).valueOf()
+
+  字符串格式中 H 表示24小时格式， h 表示12小时格式
+  
+  =d2--1124=
+  项目名称:zwasu小程序
+  项目简介：一款用于管理医疗护理设备的小程序, 设备绑定患者的个人信息, 医疗人员可以更好的了解患者的信息, 可以通过小程序控制设备, 也可以查看设备的状态
+  项目时间: 2020年7月-11月
+  项目角色:前端开发
+  所用技术:
+    1. 使用uniapp 搭建小程序框架
+    2. 将请求接口, 设备信息等内容独立为单个文件, 方便后续的维护, 
+    3. websocket 接收服务器的设备, 实时更新设备状态
+    4. 使用腾讯地图接口, 实现输入地址联想, 经纬度解析, 
+    5. 使用echarts构建图表, ,展示数据, lottie动画增加交互感
+  
+  
+  set
+  add 
+  has
+  delete
+  values
+  keys
+  entries
+  forEach
+  map
+    has
+    delete
+    set
+    clear
+  weakSet weakMap 弱引用
+
+  
+  proxy
+  get set ownKeys getPrototypeOf has deleteProperty
+  construct
+}
