@@ -41,13 +41,13 @@ export default class Search extends Vue {
   private openPage(flag: string = ''): void {
     console.log(flag);
     
-    if(flag == ''&&this.text.length>0) {
+    if(flag == '' && this.text.length > 0) {
       flag = this.text
     }
     
     this.addHR(flag) 
     
-    // this.$router.push({name: 'search-detail',query: {kw: flag}})
+    this.$router.push({name: 'search-detail',query: {kw: flag}})
   }
   addHR(text: string): void {
     if(text.trim() == '') return 

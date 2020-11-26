@@ -1,11 +1,7 @@
 <template>
-  <div class=" h-min-all">
+  <div class="box-all f-a-c f-column">
     <Bar />
-    <!-- <div class="f-16 color-3 t-center" v-if="List.length==0">
-      找不到
-    </div> -->
-    <!-- <div v-else> -->
-    <!-- <div class=""> -->
+
       <div class="slide-nav w-all f-aj-c bg-f" :class="{navBarWrap: isTop}" ref="slide_box">
          <!-- :class="{navBarWrap: isTop}" -->
         <div
@@ -20,10 +16,9 @@
         <div class="slide-nav-active" :style="slideSty"></div>
       </div>
 
-      <div class="slide-box pos-rel w-all" style="height: calc(100% - 40px)">
+      <div class="slide-box pos-rel w-all f1">
         <!-- <div class="slide-box w-all pos-rel" :style="{height: height+'px'}"> -->
-          <div class="f-a-c pos-abs slide-box-content"
-           style="height: calc(100% - 40px)"
+          <div class="f-a-c pos-abs slide-box-content h-all"
            :style="{left: left}">
             
             <div
@@ -32,9 +27,10 @@
               :key="i"
                style="overflow-y:auto;"
             >
-              <div :class="'bg-' + i"
-                :style="{height: $data['list'+i]*80+'px'}">
-              {{ i +  $data['list'+i]}}
+              <div :class="'bg-' + i">
+                <p class=" h-42" v-for="(v1, i1) in $data['list'+i]" :key="i1">
+                  {{v1}}
+                </p>
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@
   <Bar title="编辑资料" />
 
   <FormItem text="头像" :hasLine="true">
-    <img class=" box-60 b-r-half" :src="user.avatarUrl?user.avatarUrl:require('../../../public/static/user-img/avatar.png')" alt="" >
+    <img class="box-60 b-r-half" :src="user.avatarUrl?user.avatarUrl:require('../../../public/static/user-img/avatar.png')" alt="" >
   </FormItem>
   <FormItem text="ID" :value="user.account" :hasLine="true" :clickable="false"></FormItem>
   <FormItem text="昵称" :value="user.nickname" @onClick="openPage('change-name')"></FormItem>

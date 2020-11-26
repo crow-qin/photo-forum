@@ -56,7 +56,9 @@
           <i class="cubeic-arrow more-arrow"></i>
         </div>
       </div>
+
     </div>
+      <div @click="openPage('test')">测试</div>
   </div>
 </template>
 <script>

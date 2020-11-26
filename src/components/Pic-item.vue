@@ -1,34 +1,25 @@
 <template>
   <div class="pic-item w-all bg-f clear-fix b-r-4 m-b-8" :style="rowStyle" @click="toDetail">
     <div ref="pic-box">
-        <div class="pic-box w-all">
+      <div class="pic-box w-all">
         <img :src="item.url[0]" class="auto-img">
         <i class="pic-count color-f" v-if="item.url.length>1">
           {{item.url.length}}
-        </i>
+         </i>
       </div>
-
-      <div class="f-w-bold color-3 w-all pic-text p-t-8 p-lr-8" v-if="item.text">
-        {{item.text}}
-      </div>
-
-      <!-- 标签 -->
-
-      <div class="f-a-c f-j-sb  p-lr-8" style="height: 35px">
-        <div class="watch btn-part f-14" :class="{'active':lActive}" @click.stop="isLike">
-          <i class="cubeic-like f-16"></i>
-          <span>{{item.likeNum}}</span>
+        
+        <div class="f-w-bold color-3 w-all pic-text p-t-8 p-lr-8" v-if="item.text">
+          {{item.text}}
         </div>
-      </div>
+
+        <!-- 标签 -->
+        <div class="f-a-c f-j-sb  p-lr-8" style="height: 35px">
+          <div class="watch btn-part f-14" :class="{'active':lActive}" @click.stop="isLike">
+            <i class="cubeic-like f-16"></i>
+            <span>{{item.likeNum}}</span>
+          </div>
+        </div>
     </div>
-    
-  
-    <!-- <div class="good-n-watch">
-      <div class="good btn-part" :class="{'active':gActive}" @click="isGood">
-        <i class="cubeic-good"></i>
-        <span>{{item.goodNum}}</span>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -68,11 +59,11 @@ export default {
       let img = new Image()
       img.src = self.item.url[0]
       img.onload = function() {
-
-        let height = self.$refs['pic-box'].offsetHeight
-        console.log(height)
         
-        self.rowStyle = 'grid-row: auto/span ' + Math.ceil(height/10)
+        let height = self.$refs['pic-box'].offsetHeight
+        console.log('高度', height)
+        
+        self.rowStyle = 'grid-row: auto/span ' + Math.ceil(height / 10)
       }
     })
   },
