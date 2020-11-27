@@ -1,6 +1,6 @@
 <template>
   <div class="box-all bg-f8">
-    <Bar />
+    <Bar></Bar>
     <div class="f-a-c p-8">
       <input type="text" v-model="text" class="f1 ipt-box f-14" />
       <div class="f-16 ipt-text t-center" @click="openPage('')">搜索</div>
@@ -8,8 +8,8 @@
     <div class=" f-14 color-3 f-j-sb f-a-c f-wrap p-16" v-show="historyRecord.length>0">
       <div class="m-b-8">最近搜索</div>
       <div @click="showDia('all')">清除全部</div>
-      <div class="w-all f-a-c f-wrap">
-        <div class="s-history-box-item f-16 h-32" v-for="v in historyRecord" :key="v.date" @touchstart="onStart(v)" @touchmove="onMove(v)" @touchend="onEnd(v)">
+      <div class="w-all">
+        <div class="s-history-box-item f-16 h-42" v-for="v in historyRecord" :key="v.date" @touchstart="onStart(v)" @touchmove="onMove(v)" @touchend="onEnd(v)">
           {{v.text}}
         </div>
       </div>
@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import Bar from "@/components/Bar.vue";
-
+ 
 interface HrItem {
   text: string,
   date: string
@@ -99,8 +99,8 @@ export default class Search extends Vue {
       //     }, text)
       // }
     ).show()
-    
   }
+  // 删除历史记录
   onStart(obj: HrItem): void {
 
     this.timer = setTimeout(()=>{
@@ -152,9 +152,9 @@ export default class Search extends Vue {
 
   &-box-item {
     padding: 0 16px;
-    border-radius: 16px;
-    margin: 0 16px 16px 0;
-    background: rgba($color: #0084ff, $alpha: .1);
+    // border-radius: 16px;
+    // margin: 0 16px 16px 0;
+    // background: rgba($color: #0084ff, $alpha: .1);
   }
 }
 </style>

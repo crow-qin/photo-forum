@@ -6,7 +6,8 @@
     </div>
     <div v-else class="back-title">
       <i class="back-btn cubeic-back" @click="back"></i>
-      <h3>{{title}}</h3>
+      <h3 v-if="title">{{title}}</h3>
+      <slot name="center"></slot>
     </div>
   </div>
 </template>

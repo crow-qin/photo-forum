@@ -86,11 +86,17 @@ const routes: Array<RouteConfig> = [
     name: 'comment',
     component: () => import('../views/Comment.vue')
   },
+  // （其他）用户页面
   {
-    path: '/test',
-    name: 'test',
-    component: ()=> import('../views/Test.vue') 
+    path: '/user/:id',
+    name: 'user-detail',
+    component: () => import('../views/OtherUser/UserDetail.vue')
   }
+  // {
+  //   path: '/test',
+  //   name: 'test',
+  //   component: ()=> import('../views/Test.vue') 
+  // }
 ]
 
 const router = new VueRouter({
